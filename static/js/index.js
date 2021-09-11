@@ -47,7 +47,7 @@ btn_calcular.addEventListener('click',()=>{
         return res.json()
     })
     .then(data=>{
-        let data_json = JSON.parse(data['tabela_total'])[0] 
+        let data_json = JSON.parse(data['tabela_proporcional'])[0] 
         atualizar_tabela_total(data_json);
     });
 });
