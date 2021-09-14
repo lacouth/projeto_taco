@@ -25,7 +25,7 @@
             <form class="needs-validation" novalidate>
               <div class="row g-3">
                 <div class="col-sm-6">
-                  <label for="alimento" class="form-label">Alimento</label>
+                  <label for="alimento" class="form-label">Descrição do alimento</label>
                   <datalist id=ingredientes>
                     {%for ingrediente in ingredientes%}
                       <option value="{{ingrediente}}">
@@ -35,12 +35,12 @@
                 </div>
 
                 <div class="col-sm-2">
-                  <label for="peso_bruto" class="form-label">Peso Bruto</label>
+                  <label for="peso_bruto" class="form-label">Peso Bruto (em gramas)</label>
                   <input type="text" class="form-control" id="peso_bruto" placeholder="" value="">
                 </div>
 
                 <div class="col-sm-2">
-                  <label for="peso_liquido" class="form-label">Peso Líquido</label>
+                  <label for="peso_liquido" class="form-label">Peso Líquido (em gramas)</label>
                   <input type="text" class="form-control" id="peso_liquido" placeholder="" value="">
                 </div>
 
