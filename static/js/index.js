@@ -15,8 +15,24 @@ let tbody_total = document.getElementById('tbody_total');
 let cont = 0;
 let lista = new Object();
 
+let td_total_bruto = document.getElementById('total_bruto')
+let td_total_liquido = document.getElementById('total_liquido')
+
+let total_bruto = 0;
+let total_liquido = 0;
+
 btn_adicionar.addEventListener('click',()=>{
     cont++; 
+
+    lista[input_alimento.value] = {}
+    lista[input_alimento.value]["bruto"] = input_peso_bruto.value;
+    lista[input_alimento.value]["liquido"] = input_peso_liquido.value;
+
+    total_bruto += Number(input_peso_bruto.value)
+    total_liquido += Number(input_peso_liquido.value)
+
+    td_total_bruto.innerText = total_bruto
+    td_total_liquido.innerText = total_liquido
 
     tbody.insertAdjacentHTML('beforeEnd', 
     `<tr>
@@ -25,10 +41,6 @@ btn_adicionar.addEventListener('click',()=>{
         <td>${input_peso_bruto.value}</td>
         <td>${input_peso_liquido.value}</td>
     </tr>`);
-
-    lista[input_alimento.value] = {}
-    lista[input_alimento.value]["bruto"] = input_peso_bruto.value;
-    lista[input_alimento.value]["liquido"] = input_peso_liquido.value;
     
     input_peso_bruto.value = "";
     input_peso_liquido.value = "";
