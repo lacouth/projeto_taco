@@ -55,7 +55,7 @@ btn_calcular.addEventListener('click',()=>{
 function atualizar_tabela_total(dados){
     let tabela = ""
     for(let d in dados){
-        tabela += `<tr><th scope="row">${d}</th><td>${dados[d]}</td></tr>\n`
+        tabela += `<tr><th scope="row">${d}</th><td>${Number(dados[d]).toFixed(2)}</td></tr>\n`
     }
     console.log(tabela);
     tbody_total.insertAdjacentHTML('beforeend',tabela);
