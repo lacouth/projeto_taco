@@ -1,146 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <link href={{url_for('static',filename='css/home.css')}} rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href={{url_for('static',filename='css/home.css' )}} rel="stylesheet" />
   <script src="https://unpkg.com/feather-icons"></script>
   <title>Alimento Seguro</title>
 </head>
+
 <body>
-  
-    <div class="container">
-      <main>
-        <div class="py-5 text-center">
-          <img class="d-block mx-auto mb-4" src={{url_for('static', filename='/icons/alimento_seguro.png')}} alt="" width="400" height="400">
-          <h1>Programa de promoção a segurança alimentar do curso de Gastronomia da Universidade Federal da Paraíba</h1>
-          <p class="lead">Ações de apoio para execução do Programa Nacional de Alimentação Escolar (PNAE) está inserido na área temática de trabalho e linha programática de segurança alimentar e nutricional, com foco em um dos objetivos de desenvolvimento do milênio, a saber, educação de qualidade. </p>
+
+  <div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src={{url_for('static', filename='/icons/alimento_seguro.png' )}} alt=""
+          width="400" height="400">
+        <h1>Programa de promoção a segurança alimentar do curso de Gastronomia da Universidade Federal da Paraíba</h1>
+        <p class="lead">Ações de apoio para execução do Programa Nacional de Alimentação Escolar (PNAE) está inserido na
+          área temática de trabalho e linha programática de segurança alimentar e nutricional, com foco em um dos
+          objetivos de desenvolvimento do milênio, a saber, educação de qualidade. </p>
+      </div>
+
+      <div class="py-5 row offset-md-2 offset-lg-2">
+        <div class="col-md">
+          <label for="alimento" class="form-label">Descrição do alimento</label>
+          <datalist id=ingredientes>
+            {%for ingrediente in ingredientes%}
+            <option value="{{ingrediente}}">
+              {% endfor %}
+          </datalist>
+          <input type="text" class="form-control" id="alimento" value="" autocomplete="on" list=ingredientes>
         </div>
 
-        <div class="row g-5">
-          <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-            <!-- <h4 class="mb-3">Alimentos</h4> -->
-            <form class="needs-validation" novalidate>
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <label for="alimento" class="form-label">Descrição do alimento</label>
-                  <datalist id=ingredientes>
-                    {%for ingrediente in ingredientes%}
-                      <option value="{{ingrediente}}">
-                    {% endfor %}
-                  </datalist>
-                  <input type="text" class="form-control" id="alimento" placeholder="" value="" autocomplete="on" list=ingredientes>
-                </div>
-
-                <div class="col-sm-3">
-                  <label for="peso_bruto" class="form-label">Peso Bruto(g)</label>
-                  <input type="text" class="form-control" id="peso_bruto" placeholder="" value="">
-                </div>
-
-                <div class="col-sm-3">
-                  <label for="peso_liquido" class="form-label">Peso Líquido(g)</label>
-                  <input type="text" class="form-control" id="peso_liquido" placeholder="" value="">
-                </div>
-
-                <div class="col-sm-3">
-                  <button type="button" class="btn btn-success btn-adicionar" id="btn_adicionar">Adicionar</button>
-                </div>
-            </form>
-          </div>
+        <div class="col-md-2">
+          <label for="peso_bruto" class="form-label">Peso Bruto(g)</label>
+          <input type="text" class="form-control" id="peso_bruto" value="">
         </div>
-        
-        <div class="row g-5">
-          <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-            <table class="table" id='table'>
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Alimento</th>
-                  <th scope="col">Peso Bruto</th>
-                  <th scope="col">Peso Líquido</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                </tr>
-              </tbody>
+
+        <div class="col-md-2">
+          <label for="peso_liquido" class="form-label">Peso Líquido(g)</label>
+          <input type="text" class="form-control" id="peso_liquido" value="">
+        </div>
+
+        <div class="col-md">
+          <button type="button" class="btn btn-success btn-adicionar" id="btn_adicionar">Adicionar</button>
+        </div>
+      </div>
+
+      <div class="row g-5">
+        <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
+          <table class="table" id='table'>
+            <thead>
               <tr>
-                <th scope="col"> </th>
-                <th scope="col"><b>Total</b></th>
-                <th scope="col" id="total_bruto"></th>
-                <th scope="col" id="total_liquido"></th>
+                <th scope="col">#</th>
+                <th scope="col">Alimento</th>
+                <th scope="col">Peso Bruto</th>
+                <th scope="col">Peso Líquido</th>
               </tr>
-            </table>
-          </div>
+            </thead>
+            <tbody>
+              <tr>
+              </tr>
+            </tbody>
+            <tr>
+              <th scope="col"> </th>
+              <th scope="col"><b>Total</b></th>
+              <th scope="col" id="total_bruto"></th>
+              <th scope="col" id="total_liquido"></th>
+            </tr>
+          </table>
         </div>
+      </div>
 
-        <hr class="my-4">
-        
-        <div class="row g-5">
-          <div class="col-sm-8 col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-            <button class="offset-md-3 offset-sm-3 offset-lg-3 col text-center w-50 btn btn-success btn-lg" id="btn_calcular">Calcular</button>
-          </div>
-        </div>
-        
-        <hr class="my-4">
-      
-        <div class="row g-5">
-          <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-            <h3 class="text-center">Informação Nutricional por porção de 100 gramas(g) de alimento</h3>
-            <table class="table" id='tabela_proporcional'>
-              <thead>
-                <tr>
-                  <th scope="col"> Informação </th>
-                  <th scope="col"> Valor</th>
-                </tr>
-              </thead>
-              <tbody id='tbody_proporcional'>
-                <tr>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <hr class="my-4">
 
-        <div class="row g-5">
-          <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-            <h3 class="text-center">Informação Nutricional para o peso total da receita</h3>
-            <table class="table" id='tabela_total'>
-              <thead>
-                <tr>
-                  <th scope="col"> Informação </th>
-                  <th scope="col"> Valor</th>
-                </tr>
-              </thead>
-              <tbody id='tbody_total'>
-                <tr>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      <div class="row g-5">
+        <div class="col-sm-8 col-md-8 col-lg-8 offset-md-2 offset-lg-2">
+          <button class="offset-md-3 offset-sm-3 offset-lg-3 col text-center w-50 btn btn-success btn-lg"
+            id="btn_calcular">Calcular</button>
         </div>
-      
-      
-      
-      </main>
+      </div>
 
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p>
-          <span>&copy;2021 Weizel Lacouth</span>
-          <span>-</span>
-          <span>Made with
-            <i data-feather="heart"></i>
-            <span>and</span>
-            <a href="https://palletsprojects.com/p/flask/" target="_blank" rel="noopener">Flask</a>
-          </span>
-        </p>
-      </footer>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src={{url_for('static',filename='js/index.js')}}></script>
-    <script>feather.replace()</script>
+      <hr class="my-4">
+
+      <div class="py-5 row g-5">
+        <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
+          <h3 class="text-center">Informação Nutricional por porção de 100 gramas(g) de alimento</h3>
+          <table class="table" id='tabela_proporcional'>
+            <thead>
+              <tr>
+                <th scope="col"> Informação </th>
+                <th scope="col"> Valor</th>
+              </tr>
+            </thead>
+            <tbody id='tbody_proporcional'>
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="py-5 row g-5">
+        <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
+          <h3 class="text-center">Informação Nutricional para o peso total da receita</h3>
+          <table class="table" id='tabela_total'>
+            <thead>
+              <tr>
+                <th scope="col"> Informação </th>
+                <th scope="col"> Valor</th>
+              </tr>
+            </thead>
+            <tbody id='tbody_total'>
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+    </main>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p>
+        <span>&copy;2021 Weizel Lacouth</span>
+        <span>-</span>
+        <span>Made with
+          <i data-feather="heart"></i>
+          <span>and</span>
+          <a href="https://palletsprojects.com/p/flask/" target="_blank" rel="noopener">Flask</a>
+        </span>
+      </p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script src={{url_for('static',filename='js/index.js' )}}></script>
+  <script>feather.replace()</script>
 </body>
-</html>
 
+</html>
