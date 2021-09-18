@@ -6,8 +6,10 @@ let input_peso_liquido = document.getElementById('peso_liquido');
 let table = document.getElementById('table');
 let tbody = table.getElementsByTagName('tbody')[0];
 
+let tabela_proporcional = document.getElementById('tabela_proporcional');
+let tbody_proporcional = document.getElementById('tbody_proporcional');
+
 let tabela_total = document.getElementById('tabela_total');
-// let tbody_total = tabela_total.getElementsByTagName('tbody')[0];
 let tbody_total = document.getElementById('tbody_total');
 
 let cont = 0;
@@ -47,16 +49,19 @@ btn_calcular.addEventListener('click',()=>{
         return res.json()
     })
     .then(data=>{
-        let data_json = JSON.parse(data['tabela_proporcional'])[0] 
-        atualizar_tabela_total(data_json);
+        let data_json_proporcional = JSON.parse(data['tabela_proporcional'])[0] 
+        let data_json_total = JSON.parse(data['tabela_total'])[0]
+        atualizar_tabela(tbody_proporcional, data_json_proporcional)
+        atualizar_tabela(tbody_total, data_json_total)
+        
     });
 });
 
-function atualizar_tabela_total(dados){
+function atualizar_tabela(tabelaHTML, dados){
     let tabela = ""
     for(let d in dados){
         tabela += `<tr><th scope="row">${d}</th><td>${Number(dados[d]).toFixed(2)}</td></tr>\n`
     }
-    console.log(tabela);
-    tbody_total.insertAdjacentHTML('beforeend',tabela);
+    tabelaHTML.insertAdjacentHTML('beforeend',tabela);
 }
+
