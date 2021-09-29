@@ -4,7 +4,7 @@
 
 .background{
   background-color: rgb(234, 247, 232);
-  background-image: url("https://i.postimg.cc/C1PJFXnr/Design-sem-nome.jpg");
+  background-image: url("https://i.postimg.cc/gkTVn3Jj/fundo-site.png");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -20,6 +20,4 @@
 
 img{
    text-align: center;
-    image-resolution: 500px;
-
-   }
+       }
