@@ -4,11 +4,15 @@
 
 .background{
     background-color: rgb(234, 247, 232);
+    background-image: "https://i.postimg.cc/RZGVnw5j/Design-sem-nome.png" ;
+    background-size: cover;
+  background-position: center top;
+  background-repeat:repeat;
 }
 
 .jumbotron {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
-    background-color: #FDEDE1;
+    background-color: #ffffff;
     border-radius: .10rem;
   }
