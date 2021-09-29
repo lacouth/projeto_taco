@@ -4,7 +4,7 @@
 
 .background{
   background-color: rgb(234, 247, 232);
-  background-image: url("https://i.postimg.cc/sDnWb3zW/lukas-blazek-EWDv-HNNf-Um-Q-unsplash.jpg");
+  background-image: url("https://i.postimg.cc/TPcQyZmJ/priscilla-du-preez-INjdgk-Cw-Hp0-unsplash-1.jpg");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -18,6 +18,5 @@
   }
 
 .img{
-    image-resolution: 300px;
-    object-position: center;
-}
+    image-resolution: 500px;
+   }
