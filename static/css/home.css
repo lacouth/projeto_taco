@@ -5,9 +5,9 @@
 .background{
   background-color: rgb(234, 247, 232);
   background-image: url("https://i.postimg.cc/3RfvjPMQ/Design-sem-nome.png");
-  background-size: auto;
+  background-size: cover;
   background-position: center top;
-  background-repeat:repeat;
+  background-repeat: no-repeat;
 }
 
 .jumbotron {
@@ -16,7 +16,7 @@
     background-color: #ffffff;
     border-radius: .10rem;
   }
-  
+
 .img{
     image-resolution: 300px;
 }
