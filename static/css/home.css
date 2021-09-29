@@ -7,17 +7,14 @@
   background-image: url("https://i.postimg.cc/gkTVn3Jj/fundo-site.png");
   background-size: contain;
   background-position: center top;
-  background-repeat: round;
+  background-repeat: cover;
 
 }
 
 .jumbotron {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
+    background-image: url("https://i.postimg.cc/gkTVn3Jj/fundo-site.png");
     background-color: #ffffff;
     border-radius: .10rem;
   }
-
-img{
-   text-align: center;
-       }
