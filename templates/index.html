@@ -38,8 +38,8 @@
           <label for="alimento" class="form-label">Descrição do alimento</label>
           <datalist id=ingredientes>
             {%for ingrediente in ingredientes%}
-            <option value="{{ingrediente}}">
-              {% endfor %}
+              <option value="{{ingrediente}}">
+            {% endfor %}
           </datalist>
           <input type="text" class="form-control" id="alimento" value="" autocomplete="on" list=ingredientes>
         </div>
@@ -58,6 +58,8 @@
           <button type="button" class="btn btn-success btn-adicionar" id="btn_adicionar">Adicionar</button>
         </div>
       </div>
+
+      <!-- TODO: Inserir Legendas das cores das restrições dos alimentos -->
 
       <div class="row g-5">
         <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">

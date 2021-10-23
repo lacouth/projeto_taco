@@ -20,6 +20,15 @@ let td_total_liquido = document.getElementById('total_liquido')
 
 let total_bruto = 0;
 let total_liquido = 0;
+let restricoes = {}
+
+fetch('/get_restricoes',{
+    method: 'GET'
+}).then(res=>{
+    return res.json();
+}).then(data=>{
+    restricoes = data;   
+})
 
 btn_adicionar.addEventListener('click',()=>{
     cont++; 
@@ -34,8 +43,21 @@ btn_adicionar.addEventListener('click',()=>{
     td_total_bruto.innerText = total_bruto
     td_total_liquido.innerText = total_liquido
 
+    let classe_restricao = ""
+    switch(restricoes[input_alimento.value]){
+        case 1:
+            classe_restricao = 'table-danger'; // #f8d7da
+            break;
+        case 2:
+            classe_restricao = 'table-warning'; // #fff3cd
+            break;
+        case 3:
+            classe_restricao = 'table-info'; // #cff4fc
+            break;
+    }
+
     tbody.insertAdjacentHTML('beforeEnd', 
-    `<tr>
+    `<tr class = ${classe_restricao} >
         <th scope="row">${cont}</th>
         <td>${input_alimento.value}</td>
         <td>${input_peso_bruto.value}</td>

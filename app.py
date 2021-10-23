@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pandas as pd
 
 app = Flask(__name__)
@@ -27,3 +27,9 @@ def index():
 def calcular():
     dados = request.get_json()
     return calcular_tabelas(dados)
+
+@app.route('/get_restricoes', methods=['GET'])
+def get_restricoes():
+    df = pd.read_csv('static/data/tabela_taco.csv')
+    restricoes_dict = dict(zip(df['Descrição dos alimentos'],df['Restrições']))
+    return jsonify(restricoes_dict)
