@@ -33,6 +33,11 @@
 
       <div class="py-5 row text-center">
         <img src="https://i.postimg.cc/ZKvx93Yw/Inforgr-fico-Site-53-x-21-cm.png" alt="Infográfico">
+        <p class="lead">Ações de apoio para execução do Programa Nacional de Alimentação Escolar (PNAE) no Estado da Paraíba: projeto que busca associar a alimentação adequada e saudável no ambiente escolar,  com iniciativas de compras sustentáveis através do estímulo à agricultura familiar, e priorizando cardápios que contemplem a diversidade cultural alimentar, promovendo segurança alimentar e nutricional (BRASIL, 2020).</p>
+      </div>
+
+      <div class="py-5 row text-center">
+        <img class="d-block mx-auto mb-4" style="width: 95%; height: 95%;" src={{url_for('static', filename='/icons/infografico_explicativo.png' )}} alt="infográfico">
       </div>
 
 
@@ -62,8 +67,7 @@
         </div>
       </div>
 
-      <!-- TODO: Inserir Legendas das cores das restrições dos alimentos -->
-
+     
       <div class="row g-5">
         <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
           <table class="table" id='table'>
@@ -90,6 +94,10 @@
         </div>
       </div>
 
+      <div class="py-5 row text-center">
+        <img class="d-block mx-auto mb-4" style="width: 70%; height: 70%;" src={{url_for('static', filename='/icons/legendas_alimentos.png' )}} alt="legendas dos alimentos">
+      </div>
+      <!-- TODO: Inserir Legendas das cores das restrições dos alimentos -->
       <hr class="my-4">
 
       <!-- <div class="row g-5">
@@ -209,7 +217,14 @@
     </main>
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
+   
       <p>
+        <span>
+        <img style="width: 3%; height: 3%;" src={{url_for('static', filename='/icons/brasao_ufpb.png' )}} alt="brasão ufpb">
+        </span>
+        <span>Universidade Federal da Paraíba | Centro de Tecnologia e Desenvolvimento Regional | Departamento de Gastronomia </span> 
+      </p>
+        <p>
         <span>&copy;2021 Weizel Lacouth</span>
         <span>-</span>
         <span>Made with
