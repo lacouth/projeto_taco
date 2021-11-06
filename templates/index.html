@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,25 +11,28 @@
   <link href={{url_for('static',filename='css/home.css' )}} rel="stylesheet" />
   <script src="https://unpkg.com/feather-icons"></script>
   <title>Alimento Seguro</title>
-  </head>
+</head>
 
 <body class="background">
 
 
- 
-    <div class="container">
+
+  <div class="container">
     <main>
       <div class="py-5 text-center jumbotron">
-        <img class="d-block mx-auto mb-4" src={{url_for('static', filename='/icons/alimento_seguro.png' )}} alt="logo alimento seguro"
-         width="400" height="400">
+        <img class="d-block mx-auto mb-4" src={{url_for('static', filename='/icons/alimento_seguro.png' )}}
+          alt="logo alimento seguro" width="400" height="400">
         <h1>Programa de Promoção à Segurança Alimentar</h1>
         <h2>Curso de Bacharelado em Gastronomia</h2>
         <h2>Universidade Federal da Paraíba</h2>
-        <p class="lead">Ações de apoio para execução do Programa Nacional de Alimentação Escolar (PNAE) no Estado da Paraíba: projeto que busca associar a alimentação adequada e saudável no ambiente escolar,  com iniciativas de compras sustentáveis através do estímulo à agricultura familiar, e priorizando cardápios que contemplem a diversidade cultural alimentar, promovendo segurança alimentar e nutricional (BRASIL, 2020).</p>
+        <p class="lead">Ações de apoio para execução do Programa Nacional de Alimentação Escolar (PNAE) no Estado da
+          Paraíba: projeto que busca associar a alimentação adequada e saudável no ambiente escolar, com iniciativas de
+          compras sustentáveis através do estímulo à agricultura familiar, e priorizando cardápios que contemplem a
+          diversidade cultural alimentar, promovendo segurança alimentar e nutricional (BRASIL, 2020).</p>
       </div>
 
       <div class="py-5 row text-center">
-        <img src="https://i.postimg.cc/ZKvx93Yw/Inforgr-fico-Site-53-x-21-cm.png"  alt="Infográfico">
+        <img src="https://i.postimg.cc/ZKvx93Yw/Inforgr-fico-Site-53-x-21-cm.png" alt="Infográfico">
       </div>
 
 
@@ -38,8 +41,8 @@
           <label for="alimento" class="form-label">Descrição do alimento</label>
           <datalist id=ingredientes>
             {%for ingrediente in ingredientes%}
-              <option value="{{ingrediente}}">
-            {% endfor %}
+            <option value="{{ingrediente}}">
+              {% endfor %}
           </datalist>
           <input type="text" class="form-control" id="alimento" value="" autocomplete="on" list=ingredientes>
         </div>
@@ -134,7 +137,74 @@
         </div>
       </div>
 
+      <div class="py-5 row g-5">
+        <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
+          <h3 class="text-center">Lista de Compras</h3>
+          <table class="table" id='lista_compras'>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col"> Ingrediente </th>
+                <th scope="col"> Peso Bruto (g) </th>
+                <th scope="col"> Peso Embalagem (g) </th>
+                <th scope="col"> Preço Embalagem (R$) </th>
+              </tr>
+            </thead>
+            <tbody id='tbody_lista_compras'>
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
+      <div class="py-5 row offset-md-7 offset-lg-7">
+        <div class="col-md-2">
+          <label for="porcoes" class="form-label">Porções</label>
+          <input type="text" class="form-control" id="porcoes" value="1">
+        </div>
+
+        <div class="col-md">
+          <button type="button" class="btn btn-success btn-adicionar" id="btn_lista_compras">Calcular</button>
+        </div>
+      </div>
+
+      <div class="py-5 row g-5">
+        <div class="col-md-9 col-lg-9 offset-md-2 offset-lg-2">
+          <h3 class="text-center">Lista de Compras Valores</h3>
+          <table class="table" id='lista_compras_resultado'>
+            <thead>
+              <tr>
+                <th scope="col"> Ingrediente </th>
+                <th scope="col"> Peso Bruto (g) </th>
+                <th scope="col"> Peso Embalagem (g) </th>
+                <th scope="col"> Preço Embalagem(R$) </th>
+                <th scope="col"> Preço Por Porção (R$) </th>
+                <th scope="col"> Quantidade Para Serviço (g) </th>
+                <th scope="col"> Preço Para Serviço (R$) </th>
+              </tr>
+            </thead>
+            <tbody id='tbody_lista_compras_resultado'>
+              <tr></tr>
+            </tbody>
+            <tr>
+              <th scope="col"><b>Total</b></th>
+              <th scope="col"> </th>
+              <th scope="col"> </th>
+              <th scope="col"> </th>
+              <th scope="col" id="total_porcao"></th>
+              <th scope="col"> </th>
+              <th scope="col" id="total_servico"></th>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="py-5 row g-5">
+        <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
+
+        </div>
+      </div>
 
     </main>
 
@@ -153,6 +223,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
     crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script src={{url_for('static',filename='js/index.js' )}}></script>
   <script>feather.replace()</script>
 </body>

@@ -12,7 +12,10 @@ let tbody_proporcional = document.getElementById('tbody_proporcional');
 let tabela_total = document.getElementById('tabela_total');
 let tbody_total = document.getElementById('tbody_total');
 
-let cont = 0;
+let lista_compras = document.getElementById('tbody_lista_compras')
+let btn_compras = document.getElementById('btn_lista_compras')
+
+let qnt_ingredientes = 0;
 let lista = new Object();
 
 let td_total_bruto = document.getElementById('total_bruto')
@@ -55,26 +58,37 @@ btn_adicionar.addEventListener('click',()=>{
     }
 
     tbody.insertAdjacentHTML('beforeEnd', 
-    `<tr id = "row_${cont}" class = ${classe_restricao} >
-        <th scope="row">${cont+1}</th>
-        <td id="alimento_${cont}">${input_alimento.value}</td>
-        <td id="p_bruto_${cont}">${input_peso_bruto.value}</td>
-        <td id="p_liquido_${cont}">${input_peso_liquido.value}</td>
-        <td onClick = "deleteRow(${cont})"> <i data-feather="trash-2"> </i> </td>
+    `<tr id = "row_${qnt_ingredientes}" class = ${classe_restricao} >
+        <th scope="row">${qnt_ingredientes+1}</th>
+        <td id="alimento_${qnt_ingredientes}">${input_alimento.value}</td>
+        <td id="p_bruto_${qnt_ingredientes}">${input_peso_bruto.value}</td>
+        <td id="p_liquido_${qnt_ingredientes}">${input_peso_liquido.value}</td>
+        <td onClick = "deleteRow(${qnt_ingredientes})"> <i data-feather="trash-2"> </i> </td>
     </tr>`);
     feather.replace()
+
+
+    lista_compras.insertAdjacentHTML('beforeEnd', 
+    `<tr id = "row_compras_${qnt_ingredientes}">
+        <th scope="row">${qnt_ingredientes+1}</th>
+        <td id="ingrediente_${qnt_ingredientes}">${input_alimento.value}</td>
+        <td>${input_peso_bruto.value}</td>
+        <td> <input type="text" class="form-control" id="peso_emb_${qnt_ingredientes}" value="">  </td>
+        <td> <input type="text" class="form-control" id="preco_${qnt_ingredientes}" value="">  </td>
+    </tr>`);
+
     
     input_peso_bruto.value = "";
     input_peso_liquido.value = "";
     input_alimento.value = "";
-    cont++;
+    qnt_ingredientes++;
 
     calcular_tabelas()
 
 });
 
 function calcular_tabelas(){
-    if(cont > 0){
+    if(qnt_ingredientes > 0){
         fetch('/calcular',{
             method: 'POST',
             headers: {
@@ -99,7 +113,6 @@ function calcular_tabelas(){
     }
 }
 
-btn_calcular.addEventListener('click',()=>{ calcular_tabelas() });
 
 function atualizar_tabela(tabelaHTML, dados){
     let tabela = ""
@@ -111,7 +124,7 @@ function atualizar_tabela(tabelaHTML, dados){
 }
 
 function deleteRow(pos,alimento){
-    cont--
+    qnt_ingredientes--
 
     let alimento_td = document.getElementById("alimento_"+pos)
     alimento = alimento_td.innerText
@@ -127,6 +140,14 @@ function deleteRow(pos,alimento){
 
     let row = document.getElementById("row_"+pos)
     row.remove()
+
+    let row_compras = document.getElementById("row_compras_"+pos)
+    row_compras.remove()
+
+    document.getElementById("tbody_lista_compras_resultado").innerHTML = ""
+    document.getElementById("total_porcao").innerText = ""
+    document.getElementById("total_servico").innerText = ""
+
     calcular_tabelas()    
 
 }
@@ -136,3 +157,53 @@ function atualizar_totais(){
     td_total_liquido.innerText = total_liquido    
 }
 
+btn_compras.addEventListener('click',()=>{
+
+    console.log("oi")
+    let ingrediente
+
+    for(let i = 0; i < qnt_ingredientes; i++){
+
+        ingrediente = document.getElementById("ingrediente_"+i).innerText
+        lista[ingrediente]["preco"] = Number(document.getElementById("preco_"+i).value)
+        lista[ingrediente]["peso_emb"] = Number(document.getElementById("peso_emb_"+i).value)
+
+    }
+
+    atualizar_lista_compras()
+
+})
+
+function atualizar_lista_compras(){
+    
+    let lista_final = document.getElementById("tbody_lista_compras_resultado")
+    let porcoes = Number(document.getElementById('porcoes').value)
+    let valor_porcao = 0
+    let valor_servico = 0
+    let total_porcao = 0
+    let total_servico = 0
+
+    lista_final.innerHTML = ""
+
+    for(let ingr in lista){
+        valor_porcao = (lista[ingr]["preco"] * lista[ingr]["bruto"]) / lista[ingr]["peso_emb"]
+        valor_servico = valor_porcao * porcoes
+
+        total_porcao += valor_porcao
+        total_servico += valor_servico
+
+        lista_final.insertAdjacentHTML('beforeEnd',
+        `<tr>
+            <td>${ingr}</td>
+            <td>${lista[ingr]["bruto"]}</td>
+            <td>${lista[ingr]["peso_emb"]}</td>
+            <td>${lista[ingr]["preco"]}</td>
+            <td>${valor_porcao.toFixed(2)}</td>
+            <td>${lista[ingr]["bruto"] * porcoes}</td>
+            <td>${valor_servico.toFixed(2)}</td>
+        </tr>`
+        )
+    }
+    document.getElementById("total_porcao").innerText = "R$ " + total_porcao.toFixed(2)
+    document.getElementById("total_servico").innerText = "R$ " + total_servico.toFixed(2)
+}
