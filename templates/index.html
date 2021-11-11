@@ -27,9 +27,47 @@
         <p class="lead">Este site tem como objetivo contribuir com a execução do Programa Nacional de Alimentação Escolar - PNAE. Ele possui várias ferramentas que irão ajudá-lo no planejamento de cardápios, de acordo com as orientações das legislações vigentes, além de possuir várias orientações sobre educação alimentar e nutricional e controle de qualidade de alimentos.</p>
       </div>
 
-      <div class="py-5 row text-center">
-        <img class="d-block mx-auto mb-4" style="width: 95%; height: 95%;" src={{url_for('static', filename='/icons/infografico_explicativo.png' )}} alt="infográfico">
+      <div class="py-5 row g-5">
+
+        <div class="card" style="width: 18rem;">
+          <img src={{url_for('static', filename='/icons/card1.png')}} class="card-img-top" alt="...">
+          <div class="card-body">
+            <h2 class="card-title text-center">Olá</h2>
+            <p class="card-text text-center">O Alimento Seguro é uma ferramenta de auxílio ao desenvolvimento de cardápios. Nele, você poderá gerar uma lista de  compras dos alimentos e as fichas técnicas com os valores nutricionais, baseados na Tabela Brasileira de Composição de Alimento - TACO/UNICAMP. 
+              Para começar a utilizar esta ferramenta, você deverá ter  em mãos o cardápio QUALITATIVO (lista de preparações/receitas que serão consumidas). Para cada preparação/receita você seguirá as etapas a seguir:</p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem; background-color: #587F48; color: whitesmoke;">
+          <img src={{url_for('static', filename='/icons/card2.png' )}} class="card-img-top" alt="...">
+          <div class="card-body">
+            <h2 class="card-title text-center">Descrição do Alimento</h2>
+            <p class="card-text text-center">  Em "Descrição do alimento", você encontrará uma lista de mais de 600 alimentos em suas mais variadas formas. Pensando em ajudá-lo na seleção dos alimentos que podem ser utilizados no PNAE, sinalizamos os itens restritos, de acordo com a legislação,  para informá-lo que este alimento não deveria estar em sua preparação/ receita.</p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem; background-color: #DB9D71; color: whitesmoke;">
+          <img src={{url_for('static', filename='/icons/card3.png' )}}  class="card-img-top" alt="...">
+          <div class="card-body">
+            <h2 class="card-title text-center">Peso Bruto</h2>
+            <p class="card-text text-center"> Em "Peso bruto", você deverá inserir a quantidade do alimento selecionado  que será utilizada na sua preparação/receita.  O peso bruto é o peso do alimento tal como ele é comprado, antes de ser submetido às operações do pré-preparo, como descascar, desossar ou cortar. </p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src={{url_for('static', filename='/icons/card4.png' )}} class="card-img-top" alt="...">
+          <div class="card-body">
+            <h2 class="card-title text-center">Peso Líquido</h2>
+            <p class="card-text text-center"> Em "Peso líquido",  você deverá inserir a quantidade do alimento selecionado  que será utilizada na sua preparação/receita, após retirar toda parte não aproveitada do alimento.
+              Caso você não precise retirar  parte dos alimentos , como cascas ou ossos, para elaborar a receita, o peso bruto e o peso líquido terão os mesmos valores. </p>
+          </div>
+        </div>
+
       </div>
+
+      <!-- <div class="py-5 row text-center">
+        <img class="d-block mx-auto mb-4" style="width: 95%; height: 95%;" src={{url_for('static', filename='/icons/infografico_explicativo.png' )}} alt="infográfico">
+      </div> -->
 
 
       <div class="py-5 row offset-md-2 offset-lg-2">
