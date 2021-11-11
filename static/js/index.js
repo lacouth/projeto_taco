@@ -207,3 +207,21 @@ function atualizar_lista_compras(){
     document.getElementById("total_porcao").innerText = "R$ " + total_porcao.toFixed(2)
     document.getElementById("total_servico").innerText = "R$ " + total_servico.toFixed(2)
 }
+
+
+
+var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+var alertTrigger = document.getElementById('liveAlertBtn')
+
+function alert(message, type) {
+  var wrapper = document.createElement('div')
+  wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+  alertPlaceholder.append(wrapper)
+}
+
+if (alertTrigger) {
+  alertTrigger.addEventListener('click', function () {
+    alert('Os alimentos estarão organizados em quatro categorias e sinalizados conforme a legenda abaixo.', 'success')
+  })
+}

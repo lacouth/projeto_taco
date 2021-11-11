@@ -15,6 +15,9 @@
 
 <body class="background">
 
+  <div id="liveAlertPlaceholder"></div>
+  
+
 
 
   <div class="container">
@@ -32,9 +35,8 @@
         <div class="card" style="width: 18rem;">
           <img src={{url_for('static', filename='/icons/card1.png')}} class="card-img-top" alt="...">
           <div class="card-body">
-            <h2 class="card-title text-center">Olá</h2>
-            <p class="card-text text-center">O Alimento Seguro é uma ferramenta de auxílio ao desenvolvimento de cardápios. Nele, você poderá gerar uma lista de  compras dos alimentos e as fichas técnicas com os valores nutricionais, baseados na Tabela Brasileira de Composição de Alimento - TACO/UNICAMP. 
-              Para começar a utilizar esta ferramenta, você deverá ter  em mãos o cardápio QUALITATIVO (lista de preparações/receitas que serão consumidas). Para cada preparação/receita você seguirá as etapas a seguir:</p>
+            <p class="card-text text-center">O site "Alimento Seguro" contem ferramentas de auxílio ao desenvolvimento de cardápios. Nele, você poderá gerar uma lista de  compras dos alimentos e as fichas técnicas com os valores nutricionais, baseados na Tabela Brasileira de Composição de Alimentos - TACO/UNICAMP. 
+              Para começar, você deverá ter  em mãos o cardápio QUALITATIVO (lista de preparações/receitas que serão consumidas) e para cada preparação/receita você seguirá as etapas a seguir:</p>
           </div>
         </div>
 
@@ -42,15 +44,16 @@
           <img src={{url_for('static', filename='/icons/card2.png' )}} class="card-img-top" alt="...">
           <div class="card-body">
             <h2 class="card-title text-center">Descrição do Alimento</h2>
-            <p class="card-text text-center">  Em "Descrição do alimento", você encontrará uma lista de mais de 600 alimentos em suas mais variadas formas. Pensando em ajudá-lo na seleção dos alimentos que podem ser utilizados no PNAE, sinalizamos os itens restritos, de acordo com a legislação,  para informá-lo que este alimento não deveria estar em sua preparação/ receita.</p>
+            <p class="card-text text-center">  Em "Descrição do alimento", você encontrará uma lista com mais de 600 alimentos em suas mais variadas formas. Para ajudá-lo na seleção dos alimentos que podem ser utilizados no PNAE, sinalizamos os itens restritos, de acordo com a legislação,  para informá-lo que este alimento não deveria estar em sua preparação/ receita.</p>
           </div>
+          <a href="#" id="liveAlertBtn">Importante!</a>
         </div>
 
         <div class="card" style="width: 18rem; background-color: #DB9D71; color: whitesmoke;">
           <img src={{url_for('static', filename='/icons/card3.png' )}}  class="card-img-top" alt="...">
           <div class="card-body">
             <h2 class="card-title text-center">Peso Bruto</h2>
-            <p class="card-text text-center"> Em "Peso bruto", você deverá inserir a quantidade do alimento selecionado  que será utilizada na sua preparação/receita.  O peso bruto é o peso do alimento tal como ele é comprado, antes de ser submetido às operações do pré-preparo, como descascar, desossar ou cortar. </p>
+            <p class="card-text text-center"> Em "Peso bruto", você deverá inserir a quantidade total do alimento selecionado que será utilizado na sua preparação/receita.  O peso bruto é o peso do alimento tal como ele é comprado, antes de ser submetido às operações do pré-preparo, como descascar, desossar ou cortar. </p>
           </div>
         </div>
 
@@ -58,8 +61,8 @@
           <img src={{url_for('static', filename='/icons/card4.png' )}} class="card-img-top" alt="...">
           <div class="card-body">
             <h2 class="card-title text-center">Peso Líquido</h2>
-            <p class="card-text text-center"> Em "Peso líquido",  você deverá inserir a quantidade do alimento selecionado  que será utilizada na sua preparação/receita, após retirar toda parte não aproveitada do alimento.
-              Caso você não precise retirar  parte dos alimentos , como cascas ou ossos, para elaborar a receita, o peso bruto e o peso líquido terão os mesmos valores. </p>
+            <p class="card-text text-center"> Em "Peso líquido",  você deverá inserir a quantidade do alimento selecionado  que será utilizado na sua preparação/receita, após retirar toda parte que não for aproveitada do ingrediente.
+              Caso você não precise retirar  parte alguma do alimento , como cascas ou ossos, para elaborar a receita, o peso bruto e o peso líquido terão os mesmos valores. Após inserir o alimento, o peso bruto e o peso líquido do ingrediente, clique em "Adicionar". Faça isso para todos os ingredientes da sua preparação/receita.  </p>
           </div>
         </div>
 
@@ -124,7 +127,7 @@
       </div>
 
       <div class="py-5 row text-center">
-        <img class="d-block mx-auto mb-4" style="width: 70%; height: 70%;" src={{url_for('static', filename='/icons/legendas_alimentos.png' )}} alt="legendas dos alimentos">
+        <img class="d-block mx-auto mb-4" style="width: 50%; height: 50%;" src={{url_for('static', filename='/icons/legendas_alimentos.png' )}} alt="legendas dos alimentos">
       </div>
       <!-- TODO: Inserir Legendas das cores das restrições dos alimentos -->
       <hr class="my-4">
@@ -135,12 +138,13 @@
             id="btn_calcular">Calcular</button>
         </div>
       </div>
+      se algum dos alimentos adicionados aparece destacado com as cores rosa, azul ou amarelo, provavelmente ele está classificado como:
 
       <hr class="my-4"> -->
 
       <div class="py-5 row g-5">
         <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-          <h3 class="text-center">Informação Nutricional por porção de 100 gramas(g) de alimento</h3>
+          <h3 class="text-center">Informação Nutricional por 100g (gramas) da preparação/receita</h3>
           <table class="table" id='tabela_proporcional'>
             <thead>
               <tr>
@@ -158,7 +162,7 @@
 
       <div class="py-5 row g-5">
         <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-          <h3 class="text-center">Informação Nutricional para o peso total da receita</h3>
+          <h3 class="text-center">Informação Nutricional para o rendimento total (gramas) da preparação/receita</h3>
           <table class="table" id='tabela_total'>
             <thead>
               <tr>
@@ -176,7 +180,7 @@
 
       <div class="py-5 row g-5">
         <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-          <h3 class="text-center">Lista de Compras</h3>
+          <h3 class="text-center"> Informações necessárias para lista de compras</h3>
           <table class="table" id='lista_compras'>
             <thead>
               <tr>
@@ -197,7 +201,7 @@
 
       <div class="py-5 row offset-md-7 offset-lg-7">
         <div class="col-md-2">
-          <label for="porcoes" class="form-label">Porções</label>
+          <label for="porcoes" class="form-label">Per capita</label>
           <input type="text" class="form-control" id="porcoes" value="1">
         </div>
 
@@ -208,11 +212,11 @@
 
       <div class="py-5 row g-5">
         <div class="col-md-9 col-lg-9 offset-md-2 offset-lg-2">
-          <h3 class="text-center">Lista de Compras Valores</h3>
+          <h3 class="text-center">Lista de Compras</h3>
           <table class="table" id='lista_compras_resultado'>
             <thead>
               <tr>
-                <th scope="col"> Ingrediente </th>
+                <th scope="col"> Ingredientes </th>
                 <th scope="col"> Peso Bruto (g) </th>
                 <th scope="col"> Peso Embalagem (g) </th>
                 <th scope="col"> Preço Embalagem(R$) </th>
