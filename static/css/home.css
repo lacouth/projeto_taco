@@ -27,3 +27,18 @@
 .card_legenda {
   color: burlywood;
 }
+
+.botao_legenda_rosa{
+  background-color: #f8d7da;
+  color: black;
+}
+
+.botao_legenda_azul{
+  background-color: #CFF4FC;
+  color: black;
+}
+
+.botao_legenda_amarelo{
+  background-color: #FFF3CD;
+  color: black;
+}

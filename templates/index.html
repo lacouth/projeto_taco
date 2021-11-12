@@ -17,7 +17,7 @@
 
   
 
-  <ul class="nav nav-pills nav-fill" style=" background-color:#587F48;">
+  <ul class="nav nav-pills nav-fill" style="background-color:#587F48;">
     <li class="nav-item">
       <a class="nav-link item_navbar"  href="#">Home</a>
     </li>
@@ -42,8 +42,9 @@
         <p class="lead">Este site tem como objetivo contribuir com a execução do Programa Nacional de Alimentação Escolar - PNAE. Ele possui várias ferramentas que irão ajudá-lo no planejamento de cardápios, de acordo com as orientações das legislações vigentes, além de possuir várias orientações sobre educação alimentar e nutricional e controle de qualidade de alimentos.</p>
       </div>
 
-      <div class="py-5 row g-5">
+ <div class="py-5 row g-5">
 
+    <div class="card-group gap-1">
         <div class="card" style="width: 18rem;">
           <img src={{url_for('static', filename='/icons/card1.png')}} class="card-img-top" alt="...">
           <div class="card-body">
@@ -51,7 +52,6 @@
               Para começar, você deverá ter  em mãos o cardápio QUALITATIVO (lista de preparações/receitas que serão consumidas) e para cada preparação/receita você seguirá as etapas a seguir:</p>
           </div>
         </div>
-
         <div class="card" style="width: 18rem; background-color: #587F48; color: whitesmoke;">
           <img src={{url_for('static', filename='/icons/card2.png' )}} class="card-img-top" alt="...">
           <div class="card-body">
@@ -61,7 +61,6 @@
           <a href="" id="liveAlertBtn">Importante!</a>
           <div id="liveAlertPlaceholder"></div>
         </div>
-
         <div class="card" style="width: 18rem; background-color: #DB9D71; color: whitesmoke;">
           <img src={{url_for('static', filename='/icons/card3.png' )}}  class="card-img-top" alt="...">
           <div class="card-body">
@@ -69,7 +68,6 @@
             <p class="card-text text-center"> Em "Peso bruto", você deverá inserir a quantidade total do alimento selecionado que será utilizado na sua preparação/receita.  O peso bruto é o peso do alimento tal como ele é comprado, antes de ser submetido às operações do pré-preparo, como descascar, desossar ou cortar. </p>
           </div>
         </div>
-
         <div class="card" style="width: 18rem;">
           <img src={{url_for('static', filename='/icons/card4.png' )}} class="card-img-top" alt="...">
           <div class="card-body">
@@ -78,14 +76,10 @@
               Caso você não precise retirar  parte alguma do alimento , como cascas ou ossos, para elaborar a receita, o peso bruto e o peso líquido terão os mesmos valores. Após inserir o alimento, o peso bruto e o peso líquido do ingrediente, clique em "Adicionar". Faça isso para todos os ingredientes da sua preparação/receita.  </p>
           </div>
         </div>
+    </div>
+  </div>
 
-      </div>
-
-      <!-- <div class="py-5 row text-center">
-        <img class="d-block mx-auto mb-4" style="width: 95%; height: 95%;" src={{url_for('static', filename='/icons/infografico_explicativo.png' )}} alt="infográfico">
-      </div> -->
-
-
+     
       <div class="py-5 row offset-md-2 offset-lg-2">
         <div class="col-md">
           <label for="alimento" class="form-label">Descrição do alimento</label>
@@ -140,23 +134,25 @@
       </div>
 
       <div class="py-5 row text-center">
-        <p> Se algum dos alimentos adicionados aparece destacado com as cores rosa, azul ou amarelo, provavelmente ele está classificado como:</p> 
-        <img class="d-block mx-auto mb-4" style="width: 50%; height: 50%;" src={{url_for('static', filename='/icons/legendas_alimentos.png' )}} alt="legendas dos alimentos">
-      </div>
-     
-      <hr class="my-4">
+        <h5> Se algum dos alimentos adicionados aparece destacado com as cores rosa, azul ou amarelo, provavelmente ele está classificado como:</h5> 
+        
+        <div class="d-grid gap-1 col-6">
+          <button class="btn botao_legenda_rosa" type="button">Aquisição Proibida</button>
+          <button class="btn botao_legenda_azul" type="button">Oferta Limitada para todas as Idades</button>
+          <button class="btn botao_legenda_amarelo" type="button">Oferta limitada para &#62 3 anos e proibida para 	
+            &#8804 3 anos</button>
+        </div>
 
-      <!-- <div class="row g-5">
-        <div class="col-sm-8 col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-          <button class="offset-md-3 offset-sm-3 offset-lg-3 col text-center w-50 btn btn-success btn-lg"
-            id="btn_calcular">Calcular</button>
+        <div class="d-grid gap-1 col-6">
+          <p>De acordo com a Resolução nº 06, de 08 de maio de 2020, do Fundo Nacional de Desenvolvimento da Educação -FNDE,
+             dispõe sobre o atendimento da alimentação escolar aos alunos da educação básica no âmbito do Programa Nacional 
+             de Alimentação Escolar – PNAE. </p>
         </div>
       </div>
+      
+      <hr class="my-4">
 
       
-
-      <hr class="my-4"> -->
-
       <div class="py-5 row g-5">
         <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
           <h3 class="text-center">Informação Nutricional por 100g (gramas) da preparação/receita</h3>
