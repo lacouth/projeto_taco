@@ -15,7 +15,19 @@
 
 <body class="background">
 
-  <div id="liveAlertPlaceholder"></div>
+  
+
+  <ul class="nav nav-pills nav-fill" style=" background-color:#587F48;">
+    <li class="nav-item">
+      <a class="nav-link item_navbar"  href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link item_navbar"  href="#">Manuais e Legislações</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link item_navbar" href="#">Links Importantes</a>
+    </li>
+  </ul>
   
 
 
@@ -46,7 +58,8 @@
             <h2 class="card-title text-center">Descrição do Alimento</h2>
             <p class="card-text text-center">  Em "Descrição do alimento", você encontrará uma lista com mais de 600 alimentos em suas mais variadas formas. Para ajudá-lo na seleção dos alimentos que podem ser utilizados no PNAE, sinalizamos os itens restritos, de acordo com a legislação,  para informá-lo que este alimento não deveria estar em sua preparação/ receita.</p>
           </div>
-          <a href="#" id="liveAlertBtn">Importante!</a>
+          <a href="" id="liveAlertBtn">Importante!</a>
+          <div id="liveAlertPlaceholder"></div>
         </div>
 
         <div class="card" style="width: 18rem; background-color: #DB9D71; color: whitesmoke;">
@@ -127,9 +140,10 @@
       </div>
 
       <div class="py-5 row text-center">
+        <p> Se algum dos alimentos adicionados aparece destacado com as cores rosa, azul ou amarelo, provavelmente ele está classificado como:</p> 
         <img class="d-block mx-auto mb-4" style="width: 50%; height: 50%;" src={{url_for('static', filename='/icons/legendas_alimentos.png' )}} alt="legendas dos alimentos">
       </div>
-      <!-- TODO: Inserir Legendas das cores das restrições dos alimentos -->
+     
       <hr class="my-4">
 
       <!-- <div class="row g-5">
@@ -138,7 +152,8 @@
             id="btn_calcular">Calcular</button>
         </div>
       </div>
-      se algum dos alimentos adicionados aparece destacado com as cores rosa, azul ou amarelo, provavelmente ele está classificado como:
+
+      
 
       <hr class="my-4"> -->
 
@@ -216,13 +231,13 @@
           <table class="table" id='lista_compras_resultado'>
             <thead>
               <tr>
-                <th scope="col"> Ingredientes </th>
-                <th scope="col"> Peso Bruto (g) </th>
-                <th scope="col"> Peso Embalagem (g) </th>
-                <th scope="col"> Preço Embalagem(R$) </th>
-                <th scope="col"> Preço Por Porção (R$) </th>
-                <th scope="col"> Quantidade Para Serviço (g) </th>
-                <th scope="col"> Preço Para Serviço (R$) </th>
+                <th scope="col"> Insumos </th>
+                <th scope="col"> Peso Bruto (g) retira </th>
+                <th scope="col"> Peso Embalagem (g) retira </th>
+                <th scope="col"> Preço Embalagem(R$) retira </th>
+                <th scope="col"> Valor per capita (R$) </th>
+                <th scope="col"> Peso total dos insumos </th>
+                <th scope="col"> Valor total (R$) </th>
               </tr>
             </thead>
             <tbody id='tbody_lista_compras_resultado'>
