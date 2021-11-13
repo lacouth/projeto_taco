@@ -1,5 +1,4 @@
 let btn_adicionar = document.getElementById('btn_adicionar');
-let btn_calcular = document.getElementById('btn_calcular');
 let input_alimento = document.getElementById('alimento');
 let input_peso_bruto = document.getElementById('peso_bruto');
 let input_peso_liquido = document.getElementById('peso_liquido');
@@ -21,6 +20,9 @@ let lista = new Object();
 let td_total_bruto = document.getElementById('total_bruto')
 let td_total_liquido = document.getElementById('total_liquido')
 
+let btn_calcular = document.getElementById('btn_proporcao')
+
+
 let total_bruto = 0;
 let total_liquido = 0;
 let restricoes = {}
@@ -32,6 +34,39 @@ fetch('/get_restricoes',{
 }).then(data=>{
     restricoes = data;   
 })
+
+btn_calcular.addEventListener('click',()=>{
+    porcoes = Number(document.getElementById('quantidade_porcoes').value)
+    calcular_tabela_proporcional(porcoes)
+})
+
+function calcular_tabela_proporcional(porcoes){
+
+    if(qnt_ingredientes > 0){
+        fetch('/calcular_tabela_proporcional',{
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({'ingredientes': lista, 'porcoes':porcoes})
+        })
+        .then(res=>{
+            return res.json()
+        })
+        .then(data=>{ 
+            let data_json = JSON.parse(data['tabela_total'])[0]
+            console.log(data_json)
+            atualizar_tabela(tbody_proporcional, data_json)
+            
+        });
+    }else{
+        tabela_proporcional.innerHTML = ""
+    }
+
+}
+
+
 
 btn_adicionar.addEventListener('click',()=>{
     
@@ -83,13 +118,13 @@ btn_adicionar.addEventListener('click',()=>{
     input_alimento.value = "";
     qnt_ingredientes++;
 
-    calcular_tabelas()
+    calcular_tabela_total()
 
 });
 
-function calcular_tabelas(){
+function calcular_tabela_total(){
     if(qnt_ingredientes > 0){
-        fetch('/calcular',{
+        fetch('/calcular_tabela_total',{
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -100,16 +135,13 @@ function calcular_tabelas(){
         .then(res=>{
             return res.json()
         })
-        .then(data=>{
-            let data_json_proporcional = JSON.parse(data['tabela_proporcional'])[0] 
+        .then(data=>{ 
             let data_json_total = JSON.parse(data['tabela_total'])[0]
-            atualizar_tabela(tbody_proporcional, data_json_proporcional)
             atualizar_tabela(tbody_total, data_json_total)
             
         });
     }else{
         tabela_total.innerHTML = ""
-        tabela_proporcional.innerHTML = ""
     }
 }
 
@@ -148,7 +180,7 @@ function deleteRow(pos,alimento){
     document.getElementById("total_porcao").innerText = ""
     document.getElementById("total_servico").innerText = ""
 
-    calcular_tabelas()    
+    calcular_tabela_total()    
 
 }
 
@@ -159,7 +191,6 @@ function atualizar_totais(){
 
 btn_compras.addEventListener('click',()=>{
 
-    console.log("oi")
     let ingrediente
 
     for(let i = 0; i < qnt_ingredientes; i++){
