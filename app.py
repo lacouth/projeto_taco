@@ -47,7 +47,7 @@ def calcular_tabela_proporcional():
         df.loc[ingrediente] = df.loc[ingrediente] * float(ingredientes[ingrediente]['liquido']) / 100
         peso_total += float(ingredientes[ingrediente]['liquido'])
     
-    tabela_proporcional = pd.DataFrame(df.sum() * peso_total / porcoes).to_json()
+    tabela_proporcional = pd.DataFrame(df.sum() / porcoes).to_json()
     return {'tabela_proporcional':tabela_proporcional}
 
 @app.route('/get_restricoes', methods=['GET'])

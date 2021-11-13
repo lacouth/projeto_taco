@@ -38,6 +38,8 @@ fetch('/get_restricoes',{
 btn_calcular.addEventListener('click',()=>{
     porcoes = Number(document.getElementById('quantidade_porcoes').value)
     calcular_tabela_proporcional(porcoes)
+    let titulo = document.getElementById('titulo_tabela_proporcional')
+    titulo.innerText = `Informação Nutricional por ${(total_liquido/porcoes).toFixed(2)} (gramas) da preparação/receita`
 })
 
 function calcular_tabela_proporcional(porcoes){
@@ -55,10 +57,8 @@ function calcular_tabela_proporcional(porcoes){
             return res.json()
         })
         .then(data=>{ 
-            let data_json = JSON.parse(data['tabela_total'])[0]
-            console.log(data_json)
+            let data_json = JSON.parse(data['tabela_proporcional'])[0]
             atualizar_tabela(tbody_proporcional, data_json)
-            
         });
     }else{
         tabela_proporcional.innerHTML = ""
