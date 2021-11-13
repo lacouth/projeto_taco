@@ -215,7 +215,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col"> Ingrediente </th>
-                <th scope="col"> Peso Bruto (g) </th>
+                <th scope="col"> Peso Bruto por porção(g) </th>
                 <th scope="col"> Peso Embalagem (g) </th>
                 <th scope="col"> Preço Embalagem (R$) </th>
               </tr>
@@ -238,7 +238,7 @@
         </div>
 
         <div class="col-2 d-grid">
-          <input type="text" class="form-control" id="porcoes" value="1">
+          <input type="text" class="form-control" id="per_capita" value="">
         </div>
 
         <div class="col-2 d-grid">
@@ -255,24 +255,20 @@
             <thead>
               <tr>
                 <th scope="col"> Insumos </th>
-                <th scope="col"> Peso Bruto (g) retirar </th>
-                <th scope="col"> Peso Embalagem (g) retirar </th>
-                <th scope="col"> Preço Embalagem(R$) retirar </th>
-                <th scope="col"> Valor per capita (R$) </th>
-                <th scope="col"> Peso total dos insumos </th>
-                <th scope="col"> Valor total (R$) </th>
+                <th scope="col"> Valor dos insumos per capita (R$) </th>
+                <th scope="col"> Peso total do insumo </th>
+                <th scope="col"> Valor total do insumo (R$) </th>
               </tr>
             </thead>
             <tbody id='tbody_lista_compras_resultado'>
               <tr></tr>
             </tbody>
             <tr>
-              <th scope="col"><b>Total</b></th>
-              <th scope="col"> </th>
-              <th scope="col"> </th>
-              <th scope="col"> </th>
-              <th scope="col" id="total_porcao"></th>
-              <th scope="col"> </th>
+              <th scope="col"><b>Total per capita</b></th>
+              <th scope="col" id="total_porcao"></th>  
+            </tr>
+            <tr>
+              <th scope="col"><b>Valor total da lista</b> </th>
               <th scope="col" id="total_servico"></th>
             </tr>
           </table>

@@ -35,13 +35,6 @@ fetch('/get_restricoes',{
     restricoes = data;   
 })
 
-btn_calcular.addEventListener('click',()=>{
-    porcoes = Number(document.getElementById('quantidade_porcoes').value)
-    calcular_tabela_proporcional(porcoes)
-    let titulo = document.getElementById('titulo_tabela_proporcional')
-    titulo.innerText = `Informação Nutricional por ${(total_liquido/porcoes).toFixed(2)} (gramas) da preparação/receita`
-})
-
 function calcular_tabela_proporcional(porcoes){
 
     if(qnt_ingredientes > 0){
@@ -107,7 +100,7 @@ btn_adicionar.addEventListener('click',()=>{
     `<tr id = "row_compras_${qnt_ingredientes}">
         <th scope="row">${qnt_ingredientes+1}</th>
         <td id="ingrediente_${qnt_ingredientes}">${input_alimento.value}</td>
-        <td>${input_peso_bruto.value}</td>
+        <td id="peso_pp_${qnt_ingredientes}">${input_peso_bruto.value}</td>
         <td> <input type="text" class="form-control" id="peso_emb_${qnt_ingredientes}" value="">  </td>
         <td> <input type="text" class="form-control" id="preco_${qnt_ingredientes}" value="">  </td>
     </tr>`);
@@ -205,10 +198,26 @@ btn_compras.addEventListener('click',()=>{
 
 })
 
+btn_calcular.addEventListener('click',()=>{
+    porcoes = Number(document.getElementById('quantidade_porcoes').value)
+    calcular_tabela_proporcional(porcoes)
+    let titulo = document.getElementById('titulo_tabela_proporcional')
+    titulo.innerText = `Informação Nutricional por ${(total_liquido/porcoes).toFixed(2)} (gramas) da preparação/receita`
+
+    let ingrediente
+    let value
+    for(let i = 0; i < qnt_ingredientes; i++){
+        ingrediente = document.getElementById("ingrediente_"+i).innerText
+        value = lista[ingrediente]["bruto"]  / porcoes
+        document.getElementById("peso_pp_"+i).innerText = value.toFixed(2)
+    }
+})
+
+
 function atualizar_lista_compras(){
     
     let lista_final = document.getElementById("tbody_lista_compras_resultado")
-    let porcoes = Number(document.getElementById('porcoes').value)
+    let per_capita = Number(document.getElementById('per_capita').value)
     let valor_porcao = 0
     let valor_servico = 0
     let total_porcao = 0
@@ -217,8 +226,8 @@ function atualizar_lista_compras(){
     lista_final.innerHTML = ""
 
     for(let ingr in lista){
-        valor_porcao = (lista[ingr]["preco"] * lista[ingr]["bruto"]) / lista[ingr]["peso_emb"]
-        valor_servico = valor_porcao * porcoes
+        valor_porcao = (lista[ingr]["preco"] * lista[ingr]["bruto"] / porcoes) / lista[ingr]["peso_emb"]
+        valor_servico = valor_porcao * per_capita
 
         total_porcao += valor_porcao
         total_servico += valor_servico
@@ -226,11 +235,8 @@ function atualizar_lista_compras(){
         lista_final.insertAdjacentHTML('beforeEnd',
         `<tr>
             <td>${ingr}</td>
-            <td>${lista[ingr]["bruto"]}</td>
-            <td>${lista[ingr]["peso_emb"]}</td>
-            <td>${lista[ingr]["preco"]}</td>
             <td>${valor_porcao.toFixed(2)}</td>
-            <td>${lista[ingr]["bruto"] * porcoes}</td>
+            <td>${lista[ingr]["bruto"] * per_capita}</td>
             <td>${valor_servico.toFixed(2)}</td>
         </tr>`
         )
