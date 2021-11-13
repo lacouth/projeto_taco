@@ -10,7 +10,7 @@
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link href={{url_for('static',filename='css/home.css' )}} rel="stylesheet" />
   <script src="https://unpkg.com/feather-icons"></script>
-  <title>Alimento Seguro.</title>
+  <title>Alimento Seguro</title>
 </head>
 
 <body class="background">
@@ -152,25 +152,6 @@
       
       <hr class="my-4">
 
-      
-      <div class="py-5 row g-5">
-        <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-          <h3 class="text-center">Informação Nutricional por 100g (gramas) da preparação/receita</h3>
-          <table class="table" id='tabela_proporcional'>
-            <thead>
-              <tr>
-                <th scope="col"> Informação </th>
-                <th scope="col"> Valor</th>
-              </tr>
-            </thead>
-            <tbody id='tbody_proporcional'>
-              <tr>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
       <div class="py-5 row g-5">
         <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
           <h3 class="text-center">Informação Nutricional para o rendimento total (gramas) da preparação/receita</h3>
@@ -188,6 +169,43 @@
           </table>
         </div>
       </div>
+
+      <hr class="my-4">
+
+      <div class="pxy-1 row text-center ">
+        <div class="col-2"></div>
+        
+        <div class="col-4">
+          <h5>Sua receita rende quantas porções? </h5>
+        </div>
+        <div class="col-2 d-grid">
+          <input type="text" class="form-control" id="quantidade_porcoes" value="">
+        </div>
+        <div class="col-2 d-grid">
+          <button type="button" class="btn btn-success" id="btn_proporcao">Calcular</button>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <div class="py-5 row g-5">
+        <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
+          <h3 class="text-center">Informação Nutricional por _g (gramas) da preparação/receita</h3>
+          <table class="table" id='tabela_proporcional'>
+            <thead>
+              <tr>
+                <th scope="col"> Informação </th>
+                <th scope="col"> Valor</th>
+              </tr>
+            </thead>
+            <tbody id='tbody_proporcional'>
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
 
       <div class="py-5 row g-5">
         <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
