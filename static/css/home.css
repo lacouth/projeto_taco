@@ -18,6 +18,8 @@
     background-size: cover;
     background-color: #ffffff;
     border-radius: 3rem; 
+    position: relative;
+    text-align: center;
 }
 
 .item_navbar {
