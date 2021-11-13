@@ -29,6 +29,16 @@
     </li>
   </ul>
   
+  <div class="card mb-3">
+    <div class="card-body" style="background-color:#D9E1A3; color: #204612;">
+      <p class="card-text text-center">
+        <span>
+        <img style="width: 3%; height: 3%;" src={{url_for('static', filename='/icons/brasao_ufpb.png' )}} alt="brasão ufpb">
+        </span>
+        <span>Universidade Federal da Paraíba | Centro de Tecnologia e Desenvolvimento Regional | Departamento de Gastronomia </span> 
+      </p>
+    </div>
+  </div>
 
 
 
@@ -58,22 +68,32 @@
             <h2 class="card-title text-center">Descrição do Alimento</h2>
             <p class="card-text text-center">  Em "Descrição do alimento", você encontrará uma lista com mais de 600 alimentos em suas mais variadas formas. Para ajudá-lo na seleção dos alimentos que podem ser utilizados no PNAE, sinalizamos os itens restritos, de acordo com a legislação,  para informá-lo que este alimento não deveria estar em sua preparação/ receita.</p>
           </div>
-          <a href="" id="liveAlertBtn">Importante!</a>
-          <div id="liveAlertPlaceholder"></div>
+          <div class="card-footer" style="background-color:#D9E1A3; color: #204612;">
+            <p class="text-card text-center">Importante! Os alimentos estarão organizados em quatro categorias e sinalizados conforme a legenda abaixo.</p>
+          </div>
         </div>
+
         <div class="card" style="width: 18rem; background-color: #DB9D71; color: whitesmoke;">
           <img src={{url_for('static', filename='/icons/card3.png' )}}  class="card-img-top" alt="...">
           <div class="card-body">
             <h2 class="card-title text-center">Peso Bruto</h2>
-            <p class="card-text text-center"> Em "Peso bruto", você deverá inserir a quantidade total do alimento selecionado que será utilizado na sua preparação/receita.  O peso bruto é o peso do alimento tal como ele é comprado, antes de ser submetido às operações do pré-preparo, como descascar, desossar ou cortar. </p>
+            <p class="card-text text-center"> Em "Peso bruto", você deverá inserir a quantidade total do alimento selecionado que será utilizado na sua preparação/receita. 
+               O peso bruto é o peso do alimento como ele é comprado, antes de ser submetido às operações do pré-preparo, como descascar, desossar ou cortar. </p>
           </div>
+          <div class="card-footer" style="background-color:#FFF3CD; color: #204612;">
+            <p class="text-card text-center">Lembre-se! Pelo sistema internacional de medidas, utilizamos como principal unidade de medida o grama (g). 
+              Para converter o peso de quilos(kg) para gramas(g), multiplique o valor por mil(1000).</p>
+          </div>
+          
         </div>
         <div class="card" style="width: 18rem;">
-          <img src={{url_for('static', filename='/icons/card4.png' )}} class="card-img-top" alt="...">
+          <img src={{url_for('static', filename='/icons/card4.png' )}} class="card-img-top" alt="card4">
           <div class="card-body">
             <h2 class="card-title text-center">Peso Líquido</h2>
-            <p class="card-text text-center"> Em "Peso líquido",  você deverá inserir a quantidade do alimento selecionado  que será utilizado na sua preparação/receita, após retirar toda parte que não for aproveitada do ingrediente.
-              Caso você não precise retirar  parte alguma do alimento , como cascas ou ossos, para elaborar a receita, o peso bruto e o peso líquido terão os mesmos valores. Após inserir o alimento, o peso bruto e o peso líquido do ingrediente, clique em "Adicionar". Faça isso para todos os ingredientes da sua preparação/receita.  </p>
+            <p class="card-text text-center"> Em "Peso líquido",  você deverá inserir a quantidade do alimento selecionado  que será utilizado na sua preparação/receita,
+               após retirar toda parte que não for aproveitada do ingrediente. Caso você não precise retirar  parte alguma do alimento, como cascas ou ossos, para elaborar a receita, 
+              o peso bruto e o peso líquido terão os mesmos valores. Após inserir o alimento, o peso bruto e o peso líquido do ingrediente,
+              clique em "Adicionar". Faça isso para todos os ingredientes da sua preparação/receita.  </p>
           </div>
         </div>
     </div>
@@ -284,14 +304,7 @@
     </main>
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
-   
       <p>
-        <span>
-        <img style="width: 3%; height: 3%;" src={{url_for('static', filename='/icons/brasao_ufpb.png' )}} alt="brasão ufpb">
-        </span>
-        <span>Universidade Federal da Paraíba | Centro de Tecnologia e Desenvolvimento Regional | Departamento de Gastronomia </span> 
-      </p>
-        <p>
         <span>&copy;2021 Weizel Lacouth</span>
         <span>-</span>
         <span>Made with
