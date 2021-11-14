@@ -67,7 +67,7 @@ btn_adicionar.addEventListener('click',()=>{
     lista[input_alimento.value]["bruto"] = input_peso_bruto.value;
     lista[input_alimento.value]["liquido"] = input_peso_liquido.value;
 
-    let fator = Number(lista[input_alimento.value]["liquido"]) / Number(lista[input_alimento.value]["bruto"])
+    let fator = Number(lista[input_alimento.value]["bruto"]) / Number(lista[input_alimento.value]["liquido"])
 
     total_bruto += Number(input_peso_bruto.value)
     total_liquido += Number(input_peso_liquido.value)
