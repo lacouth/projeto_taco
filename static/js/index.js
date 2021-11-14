@@ -236,7 +236,7 @@ function atualizar_lista_compras(){
         `<tr>
             <td>${ingr}</td>
             <td>${valor_porcao.toFixed(2)}</td>
-            <td>${lista[ingr]["bruto"] / porcoes * per_capita}</td>
+            <td>${(lista[ingr]["bruto"] / porcoes * per_capita).toFixed(2)}</td>
             <td>${valor_servico.toFixed(2)}</td>
         </tr>`
         )
