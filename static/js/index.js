@@ -67,6 +67,8 @@ btn_adicionar.addEventListener('click',()=>{
     lista[input_alimento.value]["bruto"] = input_peso_bruto.value;
     lista[input_alimento.value]["liquido"] = input_peso_liquido.value;
 
+    let fator = Number(lista[input_alimento.value]["liquido"]) / Number(lista[input_alimento.value]["bruto"])
+
     total_bruto += Number(input_peso_bruto.value)
     total_liquido += Number(input_peso_liquido.value)
 
@@ -91,6 +93,7 @@ btn_adicionar.addEventListener('click',()=>{
         <td id="alimento_${qnt_ingredientes}">${input_alimento.value}</td>
         <td id="p_bruto_${qnt_ingredientes}">${input_peso_bruto.value}</td>
         <td id="p_liquido_${qnt_ingredientes}">${input_peso_liquido.value}</td>
+        <td>${fator.toFixed(1)}</td>
         <td onClick = "deleteRow(${qnt_ingredientes})"> <i data-feather="trash-2"> </i> </td>
     </tr>`);
     feather.replace()
