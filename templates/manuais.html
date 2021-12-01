@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href={{url_for('static',filename='css/home.css' )}} rel="stylesheet" />
+  <script src="https://unpkg.com/feather-icons"></script>
+  <title>Alimento Seguro</title>
+</head>
+
+<body class="background">
+
+
+
+  <ul class="nav nav-pills nav-fill" style="background-color:#587F48;">
+    <li class="nav-item">
+      <a class="nav-link item_navbar" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link item_navbar" href="/manuais">Manuais e Legislações</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link item_navbar" href="#">Links Importantes</a>
+    </li>
+  </ul>
+
+  <div class="card mb-3">
+    <div class="card-body" style="background-color:#D9E1A3; color: #204612;">
+      <p class="card-text text-center">
+        <span>
+          <img style="width: 3%; height: 3%;" src={{url_for('static', filename='/icons/brasao_ufpb.png' )}}
+            alt="brasão ufpb">
+        </span>
+        <span>Universidade Federal da Paraíba | Centro de Tecnologia e Desenvolvimento Regional | Departamento de
+          Gastronomia </span>
+      </p>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+    <main>
+      <div class="py-5 text-center jumbotron">
+        <img class="d-block mx-auto mb-4" src={{url_for('static', filename='/icons/alimento_seguro.png' )}}
+          alt="logo alimento seguro" width="45%" height="45%">
+        <h1>Programa de Apoio à Alimentação Escolar</h1>
+        <h2>Olá! Seja bem vindo!</h2>
+        <p class="lead">Este site tem como objetivo contribuir com a execução do Programa Nacional de Alimentação
+          Escolar - PNAE. Ele possui várias
+          ferramentas que irão ajudá-lo no planejamento de cardápios, de acordo com as orientações das legislações
+          vigentes, além de possuir
+          várias orientações sobre educação alimentar e nutricional e controle de qualidade de alimentos.</p>
+      </div>
+
+      <div class="py-5 row g-5">
+
+        <div class="card-group gap-1">
+          <div class="card" style="width: 18rem;">
+            <img src={{url_for('static', filename='/icons/card1.png' )}} class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text text-center">O site "Alimento Seguro" contém ferramentas de auxílio ao desenvolvimento
+                de cardápios.
+                Nele, você poderá gerar uma lista de compras dos alimentos e as fichas técnicas com os valores
+                nutricionais, baseados na Tabela Brasileira de Composição de Alimentos - TACO.
+                Para começar, você deverá ter em mãos o cardápio QUALITATIVO (lista de preparações/receitas que serão
+                consumidas) e para cada preparação/receita você seguirá as etapas a seguir:</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem; background-color: #587F48; color: whitesmoke;">
+            <img src={{url_for('static', filename='/icons/card2.png' )}} class="card-img-top" alt="...">
+            <div class="card-body">
+              <h2 class="card-title text-center">Descrição do Alimento</h2>
+              <p class="card-text text-center"> Em "Descrição do alimento", você encontrará uma lista com mais de 500
+                alimentos em suas mais variadas formas.
+                Para ajudá-lo na seleção dos alimentos que podem ser utilizados no PNAE, sinalizamos os itens restritos,
+                de acordo com a legislação,
+                para informá-lo que este alimento não deveria estar em sua preparação/ receita.</p>
+            </div>
+            <div class="card-footer" style="background-color:#D9E1A3; color: #204612;">
+              <p class="text-card text-center">Importante! Os alimentos estarão organizados em quatro categorias e
+                sinalizados conforme a legenda abaixo.</p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem; background-color: #DB9D71; color: whitesmoke;">
+            <img src={{url_for('static', filename='/icons/card3.png' )}} class="card-img-top" alt="...">
+            <div class="card-body">
+              <h2 class="card-title text-center">Peso Bruto</h2>
+              <p class="card-text text-center"> Em "Peso bruto", você deverá inserir a quantidade total do alimento
+                selecionado que será utilizado na sua preparação/receita.
+                O peso bruto é o peso do alimento como ele é comprado, antes de ser submetido às operações do
+                pré-preparo, como descascar, desossar ou cortar. </p>
+            </div>
+            <div class="card-footer" style="background-color:#FFF3CD; color: #204612;">
+              <p class="text-card text-center">Lembre-se! Pelo sistema internacional de medidas, utilizamos como
+                principal unidade de medida de massa o grama (g).
+                Para converter o peso do alimento de quilos(kg) para gramas(g), multiplique o peso do alimento por
+                mil(1000).</p>
+            </div>
+
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src={{url_for('static', filename='/icons/card4.png' )}} class="card-img-top" alt="card4">
+            <div class="card-body">
+              <h2 class="card-title text-center">Peso Líquido</h2>
+              <p class="card-text text-center"> Em "Peso líquido", você deverá inserir a quantidade do alimento
+                selecionado que será utilizado na sua preparação/receita,
+                após retirar toda parte que não for aproveitada do ingrediente. Caso você não precise retirar parte
+                alguma do alimento, como cascas ou ossos, para elaborar a receita,
+                o peso bruto e o peso líquido terão os mesmos valores. Após inserir o alimento, o peso bruto e o peso
+                líquido do ingrediente,
+                clique em "Adicionar". Faça isso para todos os ingredientes da sua preparação/receita. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p>
+
+        <span>
+          <i data-feather="instagram"></i>
+          <a href="https://www.instagram.com/alimentoseguro.ufpb/" target="_blank"
+            rel="noopener">@alimentoseguro.ufpb</a>
+        </span>
+      </p>
+      <p>
+        <span>&copy;2021 Weizel Lacouth</span>
+        <span>-</span>
+        <span>Made with
+          <i data-feather="heart"></i>
+          <span>and</span>
+          <a href="https://palletsprojects.com/p/flask/" target="_blank" rel="noopener">Flask</a>
+        </span>
+      </p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src={{url_for('static',filename='js/index.js' )}}></script>
+  <script>feather.replace()</script>
+</body>
+
+</html>

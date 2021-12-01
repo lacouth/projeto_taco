@@ -55,3 +55,7 @@ def get_restricoes():
     df = pd.read_csv('static/data/tabela_taco.csv')
     restricoes_dict = dict(zip(df['Descrição dos alimentos'],df['Restrições']))
     return jsonify(restricoes_dict)
+
+@app.route('/manuais', methods = ['GET'])
+def manuais():
+    return render_template('manuais.html')
