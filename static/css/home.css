@@ -3,8 +3,8 @@
 }
 
 .background{
-  background-color: rgb(234, 247, 232);
-  background-image: url("/static/icons/fundo-site-1.png");
+  background-color: #F6DAAF;
+  background-image: url("/static/icons/fundo-site.png");
   background-size: cover;
   background-position: center top;
   background-repeat: space;
@@ -43,4 +43,8 @@
 .botao_legenda_amarelo{
   background-color: #FFF3CD;
   color: black;
+}
+.botao_geral{
+  background-color:#020070;
+  color: whitesmoke;
 }
