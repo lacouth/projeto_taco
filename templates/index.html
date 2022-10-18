@@ -10,7 +10,7 @@
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link href={{url_for('static',filename='css/home.css' )}} rel="stylesheet" />
   <script src="https://unpkg.com/feather-icons"></script>
-  <title>Ficha Técnica Fácil OI</title>
+  <title>Ficha Técnica Fácil</title>
 </head>
 
 <body class="background">
@@ -22,7 +22,7 @@
       <a class="nav-link item_navbar"  href="/">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link item_navbar"  href="/manuais">Manuais e Legislações</a>
+      <a class="nav-link item_navbar"  href="/manuais">Materiais de apoio</a>
     </li>
     <li class="nav-item">
       <a class="nav-link item_navbar" href="#">Links Importantes</a>
@@ -30,7 +30,7 @@
   </ul>
   
   <div class="card mb-3">
-    <div class="card-body" style="background-color:#ACB9E9; color: #020070";">
+    <div class="card-body" style="background-color:#ACB9E9; color: #020070;">
       <p class="card-text text-center">
         <span>
         <img style="width: 3%; height: 3%;" src={{url_for('static', filename='/icons/brasao_ufpb.png' )}} alt="brasão ufpb">
@@ -44,11 +44,11 @@
 
   <div class="container">
     <main>
-      <div class="py-5 text-center jumbotron">
-        <img class="d-block mx-auto mb-5" src={{url_for('static', filename='/icons/alimento_seguro.png' )}}
-          alt="logo alimento seguro" width="30%" height="45%">
-        <h1 class="display-3" style="color:#020070; margin-top:3em; font-weight: bold;">Programa de Apoio aos Serviços de Alimentação e Nutrição </h1>
-        <h2 style="color:#020070; margin-top:2em">Olá! Seja bem-vindo!</h2>
+      <div class="py-5 text-card jumbotron">
+        <img class="d-block mx-auto mb-2" style="padding:1rem;" src={{url_for('static', filename='/icons/logo_lab.png' )}}
+          alt="logo lab" width="40%" height="40%">
+        <h1 class="display-1" style="color:#020070; margin-top:2em;  font-family: fantasy;">FICHA TÉCNICA FÁCIL</h1>
+        <h2 style="color:#020070; margin-top:1em">Olá! Seja bem-vindo!</h2>
         <p class="lead" style="color:#020070; text-align: justify;">Este site tem como objetivo contribuir com a confecção de Fichas Técnicas de Preparo (FTP) para os profissionais da alimentação. 
           Ele possui várias ferramentas que irão ajudá-lo no planejamento de cardápios mais adequados e 
           padronizados, fornecendo informações importantes acerca das preparações, sua composição nutricional e 
@@ -264,7 +264,7 @@
         <div class="col-2"></div>
 
         <div class="col-4">
-          <h5>Para quantas pessoas será esta preparação/receita (pax)?</h5>
+          <h4>Para quantas pessoas será esta preparação/receita (pax)?</h4>
         </div>
 
         <div class="col-2 d-grid">

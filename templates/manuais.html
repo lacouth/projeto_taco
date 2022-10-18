@@ -22,7 +22,7 @@
       <a class="nav-link item_navbar"  href="/">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link item_navbar"  href="/manuais">Manuais e Legislações</a>
+      <a class="nav-link item_navbar"  href="/manuais">Materiais de apoio</a>
     </li>
     <li class="nav-item">
       <a class="nav-link item_navbar" href="#">Links Importantes</a>
@@ -43,11 +43,11 @@
 
   <div class="container">
     <main>
-      <div class="py-5 text-center jumbotron">
-        <img class="d-block mx-auto mb-5" src={{url_for('static', filename='/icons/alimento_seguro.png' )}}
-          alt="logo alimento seguro" width="35%" height="20%">
-        <h1 class="display-3" style="color:#020070; margin-top:1em; font-weight: bold;">Programa de Apoio aos Serviços de Alimentação e Nutrição </h1>
-      </div>
+      <div class="py-2 text-small jumbotron">
+        <img class="d-block mx-auto mb-1 " src={{url_for('static', filename='/icons/logo_lab.png' )}}
+          alt="logo lab" width="25%" height="25%">
+        <h1 class="display-1" style="color:#020070; font-family: fantasy; padding-bottom: 12rem; text-decoration:solid;">FICHA TÉCNICA FÁCIL</h1>
+  </div>
 
 
 
@@ -57,8 +57,7 @@
       <div class="card" style="width: 18rem; background-color:#48436A; color: whitesmoke;">
         <div class="card-body">
           <h5 class="card-title; text-center">GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA</h5>
-            <p class="card-text;" style="text-align:justify;">Criado em 2006 (e reeditado em 2014) pelo Ministério da Saúde em conjunto com o Núcleo de Pesquisas
-               Epidemiológicas em Nutrição e Saúde (Nupens) da Universidade de São Paulo (USP), o Guia Alimentar da População Brasileira é um material 
+            <p class="card-text;" style="text-align:justify;">O Guia Alimentar da População Brasileira é um material 
                de domínio público e linguagem acessível com diretrizes sobre alimentação que visa promover a saúde de pessoas, famílias, comunidades e 
                prevenir doenças crônicas não transmissíveis, como diabetes, doenças do coração, entre outras. 
               Ele traz informações e recomendações munidas de argumentos científicos, sendo uma publicação com premiações e reconhecimento internacional.</p>
@@ -68,11 +67,11 @@
 
       <div class="card" style="width: 18rem; background-color:#A5BE73; color: black;" >
         <div class="card-body">
-          <h5 class="card-title; text-center">GASTRONOMIA E ALIMENTAÇÃO ESCOLAR: Manual de Orientação para profissionais</h5>
-            <p class="card-text;"style="text-align:justify;">Livro desenvolvido por nossa equipe de extensionistas do Laboratório Restaurante Didático, do Curso de Gastronomia da Universidade Federal da Paraíba,
-               que contém orientações e ferramentas para os atores envolvidos no processo de construção de hábitos alimentares saudáveis para escolares, 
-               bem como um roteiro para a elaboração de cardápios saudáveis, sustentáveis e regionalizados, a fim de promover mais qualidade e aceitabilidade para 
-               alimentação escolar, e contribuir com redução de desperdícios, de custos e de tempo.
+          <h5 class="card-title; text-center">E-BOOK GASTRONOMIA E ALIMENTAÇÃO ESCOLAR: Manual de Orientação para profissionais</h5>
+            <p class="card-text;"style="text-align:justify;">Livro desenvolvido pela equipe de extensionistas do Laboratório Restaurante Didático, do Curso de Gastronomia da Universidade Federal da Paraíba,
+               com orientações e ferramentas para os atores envolvidos no processo de construção de hábitos alimentares saudáveis nas escolas, 
+               contendo um roteiro para a elaboração de cardápios saudáveis, sustentáveis e regionalizados, a fim de promover qualidade e aceitabilidade para 
+               alimentação escolar e contribuir com redução de desperdícios, custos e tempo.
             </p>
           <a target ="_blank" href="https://drive.google.com/file/d/14ouDYVSAIPX6c1bzbud7HSmFY0U_oxH1/view?usp=sharing" class="btn botao_geral">Ir para o site</a>
         </div>
@@ -81,9 +80,7 @@
  <div class="card" style="width: 18rem; background-color: #F5A833; color: black;" >
         <div class="card-body">
           <h5 class="card-title; text-center">TABELA BRASILEIRA DE COMPOSIÇÃO DE ALIMENTOS</h5>
-            <p class="card-text; "style="text-align:justify;">A partir de 2013 a Tabela Brasileira de Composição de Alimentos (TBCA) está sendo desenvolvida de forma 
-              integrada entre a Rede Brasileira de Dados de Composição de Alimentos (Brasilfoods), Universidade de São Paulo (USP) e Food Research Center (FoRC/CEPID/FAPESP).
-              A TBCA apresenta duas bases de dados distintas, uma com dados analíticos originais relativos a alimentos da biodiversidade brasileira e alimentos regionais e, 
+            <p class="card-text; "style="text-align:justify;">A Tabela Brasileira de Composição de Alimentos apresenta duas bases de dados distintas, uma com dados analíticos originais relativos a alimentos da biodiversidade brasileira e alimentos regionais e, 
               outra com informações sobre o conteúdo de componentes dos alimentos mais consumidos no Brasil, com o objetivo de permitir a avaliação da ingestão de
                nutrientes e facilitar o planejamento de planos alimentares.</p>
               <a target ="_blank" href="http://www.tbca.net.br/" class="btn botao_geral">Ir para o site</a>
@@ -93,6 +90,46 @@
 
 
     </div>
+
+    <div class="py-5 row g-5">
+      <div class="card-group gap-1">
+        
+        <div class="card" style="width: 18rem; background-color:#BB4823; color: whitesmoke;">
+          <div class="card-body">
+            <h5 class="card-title; text-center">E-BOOK GASTRONOMIA DIVERTIDA</h5>
+              <p class="card-text;" style="text-align:justify;"> Livro de coletânea de receitas desenvolvidas por
+                professores e estudantes de gastronomia e nutrição da Universidade Federal da
+                Paraíba. As receitas e as dinâmicas deste livro podem ser aplicadas em família 
+                e se tornarem instrumentos para estreitar vínculos, despertando a criatividade das crianças e estimulando o aprendizado de
+                diferentes conteúdos, contribuindo com alimentação saudável, de qualidade e promovendo momentos de alegrias</p>
+            <a target ="_blank" href="http://www.ctdr.ufpb.br/ctdr/contents/documentos/dtg/enfrentamento-ao-covid-19/gastronomia-divertida" class="btn botao_geral">Ir para o site</a>
+          </div>
+        </div>
+  
+        <div class="card" style="width: 18rem; background-color:#F5A833; color: black;" >
+          <div class="card-body">
+            <h5 class="card-title; text-center">E- BOOK GASTRONOMIA E ALIMENTAÇÃO ESCOLAR: Manual de Orientação para profissionais</h5>
+              <p class="card-text;"style="text-align:justify;"> Livro desenvolvido por alunos do Curso de Gastronomia da UFPB com o objetivo de 
+                apresentar em um único material e de forma simples e prática todos os recursos necessários para o planejamento de
+                cardápios em serviços de alimentação.</p>
+            <a target ="_blank" href="https://drive.google.com/file/d/1Kiy-_JI0RyUqRJY4JT-WJ6m8gYZTMloL/view" class="btn botao_geral">Ir para o site</a>
+          </div>
+        </div>
+  
+   <div class="card" style="width: 18rem; background-color: #ACB9E9; color: black;" >
+          <div class="card-body">
+            <h5 class="card-title; text-center">E-BOOK FAÇA E VENDA: BOLO VULCÃO</h5>
+              <p class="card-text; "style="text-align:justify;">Livro foi planejado e desenvolvido para               
+                o público em geral com o objetivo de estimular a inovação e o aperfeiçoamento da produção de bolos. O livro contém um curso planejado para você, que
+                pretende trabalhar com “Bolo Vulcão” mas não sabe como começar. Este livro contém o passo-a-passo de como preparar, precificar e vender
+                esses produtos.</p>
+                <a target ="_blank" href="https://drive.google.com/file/d/1Vrp8cEUACwjFIV3Ip2WLKOuGk4MUpv5F/view" class="btn botao_geral">Ir para o site</a>
+          </div>
+        </div>
+    </div>
+  
+  
+      </div>
   </div>
 
       
