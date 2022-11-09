@@ -50,9 +50,8 @@
         <h1 class="display-1" style="color:#020070; margin-top:2em;  font-weight: bold;">FICHA TÉCNICA FÁCIL</h1>
         <h2 style="color:#020070; margin-top:1em">Olá! Seja bem-vindo!</h2>
         <p class="lead" style="color:#020070; text-align: justify;">Este site tem como objetivo contribuir com a confecção de Fichas Técnicas de Preparo (FTP) para os profissionais da alimentação. 
-          Ele possui várias ferramentas que irão ajudá-lo no planejamento de cardápios mais adequados e 
-          padronizados, fornecendo informações importantes acerca das preparações, sua composição nutricional e 
-          lista de compras, e assim, auxiliar o fluxo operacional das cozinhas das Unidades de Alimentação e Nutrição (UAN).</p>
+          Ele possui várias ferramentas que irão ajudá-lo no planejamento de cardápios, fornecendo informações importantes sobre sua preparação/receita, como composição nutricional, porção individual e elaboração de
+          lista de compras.</p>
       </div>
 
  <div class="py-5 row g-5">
@@ -61,10 +60,10 @@
         <div class="card" style="width: 18rem; background-color: #48436A; color: whitesmoke;">
           <img src={{url_for('static', filename='/icons/card11.png')}} class="card-img-top" alt="...">
           <div class="card-body">
-            <p class="card-text" style="text-align:justify;">O site "Ficha Técnica Fácil" contém ferramentas de auxílio ao desenvolvimento de cardápios. 
-              Nele, você poderá gerar uma lista de compras dos alimentos e as fichas técnicas com os valores nutricionais, baseados na Tabela Brasileira de 
-              Composição de Alimentos - TACO. Para começar, você deverá ter em mãos o cardápio QUALITATIVO 
-              (lista de preparações/receitas que serão consumidas) e para cada preparação/receita você seguirá as etapas a seguir:</p>
+            <h2 class="card-title text-center">Vamos começar?</h2>
+            <p class="card-text" style="text-align:justify;">O site "Ficha Técnica Fácil" é uma ferramentas para auxiliar o desenvolvimento de cardápios. 
+              Aqui, você poderá elaborar a tabela nutricional de uma receita ou preparo, além de contar com ferramentas de planejamento como porção individual, fator de correção e elaboração de lista de compras.  
+              Para começar, você deverá ter em mãos a lista de alimentos/ingredientes e quantidades que serão consumidos. Para cada preparação/receita você seguirá as etapas a seguir:</p>
           </div>
         </div>
         <div class="card" style="width: 18rem; background-color: #A5BE73; color: black;">
@@ -76,20 +75,23 @@
               sua preparação/receita.</p>
           </div>
           <div class="card-footer" style="background-color:#688235; color:black;">
-            <p class="text-card " style="text-align:justify;">Importante! Os alimentos estarão organizados em quatro categorias e sinalizados conforme a legenda abaixo.</p>
+            <p class="text-card " style="text-align:justify;">Importante! Os alimentos estarão organizados em quatro categorias e sinalizados por cores. Essas categorias são relacionadas ao uso dos 
+              alimentos quando tratamos de alimentação escolar. Por exemplo: alimentos sinalizados em vermelho não devem ser consumidos por crianças nas escolas. 
+              Achamos importante essa referência pois serve de guia em receitas quando falarmos de alimentos processados ou excessivamente açucarados. </p>
           </div>
         </div>
 
         <div class="card" style="width: 18rem; background-color: #F5A833; color: black;">
-          <img src={{url_for('static', filename='/icons/card33.png' )}}  class="card-img-top" alt="...">
+          <img src={{url_for('static', filename='/icons/card33.png' )}}  class="card-img-top" alt="..."> 
           <div class="card-body">
             <h2 class="card-title text-center">Peso Bruto</h2>
             <p class="card-text " style="text-align:justify;"> Em "Peso bruto", você deverá inserir a quantidade total do alimento selecionado que será utilizado na sua preparação/receita. 
-               O peso bruto é o peso do alimento como ele é comprado, antes de ser submetido às operações do pré-preparo, como descascar, desossar ou cortar. </p>
+               O peso bruto é o peso do alimento como ele é comprado, antes de ser submetido às operações do pré-preparo, como descascar, desossar ou cortar. Ao inserir o peso, lembre-se de
+                que o separador decimal utilizado pelo site é o ponto (.)   </p>
           </div>
           <div class="card-footer" style="background-color:#FE9927; color: black;">
             <p class="text-card " style="text-align:justify;">Lembre-se! Pelo sistema internacional de medidas, utilizamos como principal unidade de medida de massa o grama (g). 
-              Para converter o peso do alimento de quilos(kg) para gramas(g), multiplique o peso do alimento por mil(1000).</p>
+              Para converter o peso do alimento de quilos (kg) para gramas(g), multiplique o peso do alimento por mil (1000).</p>
           </div>
           
         </div>
@@ -182,8 +184,8 @@
 
       <div class="py-5 row g-5">
         <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-          <h3 class="text-center">Informação Nutricional para o rendimento total (gramas) da preparação/receita</h3>
-          <h6 class="text-center">Fonte: Tabela brasileira de composição de alimentos / NEPA – UNICAMP. </h6>
+          <h4 class="text-center">INFORMAÇÃO NUTRICIONAL PARA O RENDIMENTO TOTAL DA PREPARAÇÃO/RECEITA (EM GRAMAS)</h4>
+          <h6 class="text-center">Fonte: TACO / NEPA – UNICAMP, 2011. </h6>
           <table class="table" id='tabela_total'>
             <thead>
               <tr>
@@ -219,8 +221,8 @@
 
       <div class="py-5 row g-5">
         <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-          <h3 class="text-center" id="titulo_tabela_proporcional">Informação Nutricional por (gramas) da preparação/receita</h3>
-          <h6 class="text-center">Fonte: Tabela brasileira de composição de alimentos / NEPA – UNICAMP. </h6>
+          <h4 class="text-center" id="titulo_tabela_proporcional">INFORMAÇÃO NUTRICIONAL POR GRAMA (g) DA PREPARAÇÃO/RECEITA</h4>
+          <h6 class="text-center">Fonte: TACO / NEPA – UNICAMP, 2011. </h6>
           <table class="table" id='tabela_proporcional'>
             <thead>
               <tr>
@@ -239,7 +241,7 @@
 
       <div class="py-5 row g-5">
         <div class="col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-          <h3 class="text-center"> Informações necessárias para a lista de compras</h3>
+          <h4 class="text-center"> INFORMAÇÕES PARA A LISTA DE COMPRAS</h4>
           <table class="table" id='lista_compras'>
             <thead>
               <tr>
@@ -264,7 +266,7 @@
         <div class="col-2"></div>
 
         <div class="col-4">
-          <h4>Para quantas pessoas será esta preparação/receita (pax)?</h4>
+          <h5>Para quantas pessoas será esta preparação/receita (pax)?</h5>
         </div>
 
         <div class="col-2 d-grid">
@@ -280,7 +282,7 @@
 
       <div class="py-5 row g-5">
         <div class="col-md-9 col-lg-9 offset-md-2 offset-lg-2">
-          <h3 class="text-center">Lista de Compras</h3>
+          <h3 class="text-center">LISTA DE COMPRAS</h3>
           <table class="table" id='lista_compras_resultado'>
             <thead>
               <tr>
@@ -315,19 +317,18 @@
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
       <p>
-        
-       <span>
-          <i data-feather="instagram"></i>
-          <a href="https://www.instagram.com/lab.restaurante.didatico_ufpb/?hl=pt-br" target="_blank" rel="noopener">@lab.restaurante.didatico_ufpb</a>
-        </span>
-      </p>
-      <p>
-        <span>&copy;2022 Weizel Lacouth</span>
+        <span>&copy;2022 Desenvolvido por Giovanna Weizel Lacouth</span>
         <span>-</span>
         <span>Made with
           <i data-feather="heart"></i>
           <span>and</span>
           <a href="https://palletsprojects.com/p/flask/" target="_blank" rel="noopener">Flask</a>
+        </span>
+      </p>
+      <p>
+        <span>
+          <i data-feather="instagram"></i>
+          <a href="https://www.instagram.com/lab.restaurante.didatico_ufpb/?hl=pt-br" target="_blank" rel="noopener">@lab.restaurante.didatico_ufpb</a>
         </span>
       </p>
     </footer>
